@@ -1,0 +1,87 @@
+<div class="container">
+  <div class="text-start">
+    <div class="row">
+      <div class="col-lg-3 col-md-12">
+        <h1>Bacheca annunci&lt;/&gt;</h1>
+        <div class="dropdown filtra-categorie">
+          <h5>Filtra per categoria</h5>
+          <button
+            class="btn dropdown-toggle mb-3"
+            type="button"
+            id="categoriaDropdown"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Tutte le categorie
+          </button>
+          <ul
+            class="dropdown-menu categorie"
+            aria-labelledby="categoriaDropdown"
+          >
+            <li>
+              <form (ngSubmit)="applicaFiltri()">
+                <select
+                  id="categoria"
+                  class="form-select"
+                  [(ngModel)]="filtroCategoria"
+                  name="categoria"
+                  multiple
+                >
+                  <option value="">Tutte le categorie</option>
+                  <option value="SVILUPPO_WEB">Sviluppo Web</option>
+                  <option value="BUG_FIXING">Bug Fixing</option>
+                  <option value="SVILUPPO_DESKTOP">Sviluppo Desktop</option>
+                  <option value="SVILUPPO_MOBILE">Sviluppo Mobile</option>
+                </select>
+                <button type="submit" class="btn applica-filtri">
+                  Applica filtri
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="col-sm-12 col-lg-7">
+        <div *ngFor="let annuncio of annunci">
+          <a [routerLink]="['/annunci', annuncio.id]" class="">
+            <div class="card p-3 mb-2">
+              <div class="card-body">
+                <h2 class="card-title mb-1">{{ annuncio.titolo }}</h2>
+
+                <p class="budget-card card-text">
+                  Budget Previsto: €{{ annuncio.budgetPrevisto }}
+                </p>
+                <p class="data-card card-text">
+                  {{ annuncio.categoria | categoriaConversion }} - Pubblicato il
+                  {{ annuncio.dataPubblicazione }} - Stato:
+                  {{ annuncio.statoAnnuncio }}
+                </p>
+              </div>
+            </div>
+          </a>
+        </div>
+
+        <div class="d-flex justify-content-end">
+          <button
+            class="btn btn-pagine mr-2"
+            (click)="paginaPrecedente()"
+            [disabled]="currentPage === 0"
+          >
+            <
+          </button>
+          <span class="numero-pagine text-center align-self-center">
+            Pagina {{ currentPage + 1 }} di {{ totalPages }}
+          </span>
+          <button
+            class="btn btn-pagine ml-2"
+            (click)="paginaSuccessiva()"
+            [disabled]="currentPage === totalPages - 1"
+          >
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
