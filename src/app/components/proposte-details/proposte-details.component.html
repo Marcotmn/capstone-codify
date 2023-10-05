@@ -12,14 +12,15 @@
         <div class="card p-3">
           <div class="card-body">
             <!-- TITOLO PROPOSTA -->
-            <h2 class="descrizione-proposta">{{ proposta.descrizione }}</h2>
+            <p class="stato-proposta card-text mb-3">
+              Stato proposta {{ proposta.statoProposta }}
+            </p>
+            <h2 class="descrizione-proposta mb-5">{{ proposta.descrizione }}</h2>
             <!-- IMPORTO PROPOSTO -->
             <p class="info-proposta card-text mb-1">
               Importo proposto: €{{ proposta.importoProposto }}
             </p>
-            <p class="stato-proposta card-text mb-1">
-              Stato proposta {{ proposta.statoProposta }}
-            </p>
+
           </div>
           <div *ngIf="annuncio">
             <div class="card p-3 mt-4">

@@ -33,13 +33,7 @@
               >Lista dei Developer</a
             >
           </li>
-          <li
-            class="nav-item"
-            *ngIf="
-              utente &&
-              (utente.ruolo === 'AZIENDA' || utente.ruolo === 'PRIVATO')
-            "
-          >
+          <li class="nav-item">
             <!-- Link--><a class="nav-link" href="annunci/nuovo-annuncio"
               >Crea un annuncio</a
             >

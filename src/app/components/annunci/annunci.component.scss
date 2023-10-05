@@ -2,7 +2,22 @@
 
   width: 100%; /* Imposta la larghezza al 100% del viewport */
   padding:15px;
-  margin-top: 200px;
+  margin-top: 80px;
+}
+
+.carosello-evidenza{
+  font-size: 20px;
+  color: white;
+  font-weight: 800;
+}
+.carosello-placeholder{
+  font-size: 26px;
+  color: white;
+  font-weight: 600;
+}
+
+.immagine-carosello{
+  filter: brightness(70%);
 }
 
 a{
@@ -103,3 +118,40 @@ h5{
   font-weight: 500;
   border-style: none;
 }
+@media (max-width: 768px) {
+  /* Rimpicciolisci le dimensioni dei font */
+  h1 {
+    font-size: 24px;
+  }
+
+  h5 {
+    font-size: 10px;
+  }
+
+  .card-title {
+    font-size: 18px;
+  }
+
+  .categoria {
+    font-size: 8px;
+  }
+
+  .budget-card {
+    font-size: 14px;
+  }
+
+  .data-card {
+    font-size: 8px;
+  }
+
+  .utente-pubblicante {
+    font-size: 8px;
+  }
+
+  /* Regola la grandezza dell'immagine */
+  .col-2 img {
+    width: 50px; /* Imposta la larghezza dell'immagine su 50px */
+    height: auto; /* Mantieni l'altezza proporzionale */
+  }
+}
+
